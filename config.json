@@ -1,0 +1,5 @@
+{
+    "COMMENT": "options are {} for decimal values; 0x{:02x} for two char hex values etc.",
+    "slaveIdFormat": "0x{:02X}",
+    "registerAddressFormat": "0x{:02x}"
+}

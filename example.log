@@ -1,0 +1,50 @@
+INFO:__main__:Opening serial interface: 
+	port: COM22 
+	baudrate: 57600
+	bytesize: 8
+	parity: even
+	stopbits: 1
+	timeout: 0.00175
+
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
+INFO:__main__:Master	-> ID: 0xF6, Read Holding Registers: 0x03, Read address: 45500, Read Quantity: 3
+INFO:__main__:Slave	-> ID: 0xF6, Read Holding Registers: 0x03, Read byte count: 6, Read data: [00 00 00 00 00 00]
