@@ -130,7 +130,7 @@ class SerialSnooper:
                 # Function Code
                 function_code = modbus_data[buffer_index]
                 buffer_index += 1
-                # FC01 (0x01) Read Coils  FC02 (0x02) Read Discrete Inputs
+                # FC01 (0x01) Read Coils / FC02 (0x02) Read Discrete Inputs
                 if function_code in (1, 2):
                     # Request size: UnitIdentifier (1) + FunctionCode (1) + ReadAddress (2) + ReadQuantity (2) + CRC (2)
                     expected_length = 8  # 8
@@ -151,7 +151,6 @@ class SerialSnooper:
                                 self.trash_data = False
                                 self.trash_data_f += "]"
                                 log.info(self.trash_data_f)
-
                             request = True
                             response = False
                             error = False
@@ -168,9 +167,9 @@ class SerialSnooper:
                             buffer_index = 0
                     else:
                         need_more_data = True
-
                     if request is False:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
                         expected_length = 7  # 5 + n (n >= 2)
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -212,7 +211,7 @@ class SerialSnooper:
                         else:
                             need_more_data = True
 
-                # FC03 (0x03) Read Holding Registers  FC04 (0x04) Read Input Registers
+                # FC03 (0x03) Read Holding Registers / FC04 (0x04) Read Input Registers
                 elif function_code in (3, 4):
                     # Request size: UnitIdentifier (1) + FunctionCode (1) + ReadAddress (2) + ReadQuantity (2) + CRC (2)
                     expected_length = 8  # 8
@@ -248,7 +247,8 @@ class SerialSnooper:
                     else:
                         need_more_data = True
                     if request is False:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
                         expected_length = 7  # 5 + n (n >= 2)
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -390,7 +390,8 @@ class SerialSnooper:
                         need_more_data = True
 
                     if request is False:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteData (2) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteData (2) + CRC (2)
                         expected_length = 8
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -438,7 +439,8 @@ class SerialSnooper:
 
                 # FC15 (0x0F) Write Multiple Coils
                 elif function_code == 15:
-                    # Request size: UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
+                    # Request size:
+                    # UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
                     expected_length = 10  # n >= 1
                     if len(modbus_data) >= (frame_start_index + expected_length):
                         buffer_index = frame_start_index + 2
@@ -482,9 +484,9 @@ class SerialSnooper:
                             need_more_data = True
                     else:
                         need_more_data = True
-
                     if request is False:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + CRC (2)
                         expected_length = 8
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -517,8 +519,8 @@ class SerialSnooper:
 
                 # FC16 (0x10) Write Multiple registers
                 elif function_code == 16:
-
-                    # Request size: UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
+                    # Request size:
+                    # UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
                     expected_length = 11  # n >= 2
                     if len(modbus_data) >= (frame_start_index + expected_length):
                         buffer_index = frame_start_index + 2
@@ -562,9 +564,9 @@ class SerialSnooper:
                             need_more_data = True
                     else:
                         need_more_data = True
-
                     if request is False:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + WriteAddress (2) + WriteQuantity (2) + CRC (2)
                         expected_length = 8
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -594,7 +596,6 @@ class SerialSnooper:
                                 buffer_index = 0
                         else:
                             need_more_data = True
-
                     if (request is False) & (response is False):
                         # Error size: UnitIdentifier (1) + FunctionCode (1) + ExceptionCode (1) + CRC (2)
                         expected_length = 5  # 5
@@ -637,9 +638,9 @@ class SerialSnooper:
                 # elif (functionCode == 22):
 
                 # FC23 (0x17) Read/Write Multiple registers
-                elif (function_code == 23):
-
-                    # Request size: UnitIdentifier (1) + FunctionCode (1) + ReadAddress (2) + ReadQuantity (2) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
+                elif function_code == 23:
+                    # Request size:
+                    # UnitIdentifier (1) + FunctionCode (1) + ReadAddress (2) + ReadQuantity (2) + WriteAddress (2) + WriteQuantity (2) + WriteByteCount (1) + WriteData (n) + CRC (2)
                     expected_length = 15  # 13 + n (n >= 2)
                     if len(modbus_data) >= (frame_start_index + expected_length):
                         buffer_index = frame_start_index + 2
@@ -689,9 +690,9 @@ class SerialSnooper:
                             need_more_data = True
                     else:
                         need_more_data = True
-
                     if not request:
-                        # Response size: UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
+                        # Response size:
+                        # UnitIdentifier (1) + FunctionCode (1) + ReadByteCount (1) + ReadData (n) + CRC (2)
                         expected_length = 7  # 5 + n (n >= 2)
                         if len(modbus_data) >= (frame_start_index + expected_length):
                             buffer_index = frame_start_index + 2
@@ -738,7 +739,6 @@ class SerialSnooper:
 
                 # FC80+ ( 0x80 + FC) Exception
                 elif function_code >= 0x80:
-
                     # Error size: UnitIdentifier (1) + FunctionCode (1) + ExceptionCode (1) + CRC (2)
                     expected_length = 5  # 5
                     if len(modbus_data) >= (frame_start_index + expected_length):
@@ -746,7 +746,6 @@ class SerialSnooper:
                         # Exception Code (1)
                         exception_code = modbus_data[buffer_index]
                         buffer_index += 1
-
                         # CRC16 (2)
                         crc16 = (modbus_data[buffer_index] * 0x0100) + modbus_data[buffer_index + 1]
                         met_crc16 = self.calcCRC16(modbus_data, buffer_index)
@@ -769,10 +768,9 @@ class SerialSnooper:
                         need_more_data = True
             else:
                 need_more_data = True
-
             if need_more_data:
                 return modbus_data
-            elif (request == False) & (response == False) & (error == False):
+            elif (request is False) & (response is False) & (error is False):
                 if self.trash_data:
                     self.trash_data_f += " {:02x}".format(modbus_data[frame_start_index])
                 else:
@@ -787,10 +785,10 @@ class SerialSnooper:
     # Calculate the modbus CRC
     # --------------------------------------------------------------------------- #
     def calcCRC16(self, data, size):
-        crcHi = 0XFF
-        crcLo = 0xFF
+        crc_hi = 0XFF
+        crc_lo = 0xFF
 
-        crcHiTable = [0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
+        crc_hi_table = [0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
                       0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
                       0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0,
                       0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
@@ -817,7 +815,7 @@ class SerialSnooper:
                       0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
                       0x80, 0x41, 0x00, 0xC1, 0x81, 0x40]
 
-        crcLoTable = [0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06,
+        crc_lo_table = [0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06,
                       0x07, 0xC7, 0x05, 0xC5, 0xC4, 0x04, 0xCC, 0x0C, 0x0D, 0xCD,
                       0x0F, 0xCF, 0xCE, 0x0E, 0x0A, 0xCA, 0xCB, 0x0B, 0xC9, 0x09,
                       0x08, 0xC8, 0xD8, 0x18, 0x19, 0xD9, 0x1B, 0xDB, 0xDA, 0x1A,
@@ -846,13 +844,13 @@ class SerialSnooper:
 
         index = 0
         while index < size:
-            crc = crcHi ^ data[index]
-            crcHi = crcLo ^ crcHiTable[crc]
-            crcLo = crcLoTable[crc]
+            crc = crc_hi ^ data[index]
+            crc_hi = crc_lo ^ crc_hi_table[crc]
+            crc_lo = crc_lo_table[crc]
             index += 1
 
-        metCRC16 = (crcHi * 0x0100) + crcLo
-        return metCRC16
+        met_crc16 = (crc_hi * 0x0100) + crc_lo
+        return met_crc16
 
 
 # --------------------------------------------------------------------------- #
